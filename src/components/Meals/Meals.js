@@ -4,8 +4,8 @@ import MealsSummary from "./MealsSummary";
 const Meals = () => {
   return (
     <>
-      <AvailableMeals />
       <MealsSummary />
+      <AvailableMeals />
     </>
   );
 };
