@@ -2,7 +2,7 @@ import classes from "./Modal.module.css";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} />;
+  return <div className={classes.backdrop} onClose={props.onClose} />;
 };
 
 const ModalOverlay = (props) => {
@@ -17,8 +17,14 @@ const Modal = (props) => {
   const partalElement = document.getElementById("Overlays");
   return (
     <>
-      {ReactDOM.createPortal(<Backdrop />, partalElement)}
-      {ReactDOM.createPortal(<ModalOverlay>{ props.children}</ModalOverlay>, partalElement)}
+      {ReactDOM.createPortal(
+        <Backdrop onClose={props.onClose} />,
+        partalElement
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        partalElement
+      )}
     </>
   );
 };
